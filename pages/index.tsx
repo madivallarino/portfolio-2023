@@ -7,8 +7,7 @@ import Skills from '@/components/Skills'
 import WorkExperience from '@/components/WorkExperience'
 import Head from 'next/head'
 import Image from 'next/image'
-
-
+import Link from 'next/link'
 
 
 export default function Home() {
@@ -46,6 +45,16 @@ export default function Home() {
       <section id="contact" className='snap-start'>
         <ContactMe />
       </section>
+
+      <Link href='#hero'>
+        <footer className='sticky bottom-5 w-full cursor-pointer'>
+          <div className='flex items-center justify-center'>
+            <Image 
+            className='rounded-full filter grayscale hover:grayscale-0'
+            src="https://miro.medium.com/max/2400/1*j8oct7dLeIL8Ruw69NfcrA.jpeg" alt="" height={25} width={25}/>
+          </div>
+        </footer>
+      </Link>
     </div>
   )
 }
