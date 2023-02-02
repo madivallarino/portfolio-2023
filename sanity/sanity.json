@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "project": {
+    "name": "portfolio-2023"
+  },
+  "api": {
+    "projectId": "ygzau69y",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    }
+  ]
+}

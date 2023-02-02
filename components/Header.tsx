@@ -1,9 +1,12 @@
 import { SocialIcon } from 'react-social-icons';
 import { motion } from "framer-motion"
 import Link from 'next/link';
-type Props = {}
+import { Social } from '@/typings';
+type Props = {
+    socials: Social[];
+}
 
-function Header({}: Props) {
+function Header({ socials }: Props) {
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
         <motion.div 
@@ -21,12 +24,18 @@ function Header({}: Props) {
             duration: 1.5,
         }}
         className='flex flex-row items-center'>
-            <SocialIcon url='https://medium.com/@madivallarino'/>
-            <SocialIcon url='https://github.com/madivallarino'/>
-            <SocialIcon url='https://www.linkedin.com/in/madison-vallarino-179a54146/'/>
+            {socials.map((social)=> (
+                <SocialIcon 
+                    key={social._id}
+                    url={social.url}
+                    fgColor="gray"
+                    bgColor="transparent"
+                />
+            ))}
+            
         </motion.div>
 
-        <Link href='#contact'>
+     
         <motion.div 
         initial={{
             x: 500, 
@@ -44,14 +53,14 @@ function Header({}: Props) {
 
             <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>Get In Touch</p>
         </motion.div>
-        </Link>
+       
     </header>
   )
 }
 
 export default Header
 
-
+// dont forget to add a link to the Get in Touch situtaion
 
 
 // for the social icon if i want it grayed out:

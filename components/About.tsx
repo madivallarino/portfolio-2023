@@ -2,11 +2,15 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import maddyduck from '../pictures/maddyduck.jpg'
+import { PageInfo } from '@/typings'
+import { urlFor } from '@/sanity'
 
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo;
+}
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div 
     initial={{ opacity: 0}}
@@ -26,13 +30,13 @@ function About({}: Props) {
         viewport={{ once: true}}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
         >
-         <Image src={maddyduck} alt='' style={{objectFit: 'cover'}}/>
+         <img src={urlFor(pageInfo?.profilePic).url()} alt='' style={{objectFit: 'cover'}}/>
         </motion.div>
        
        <div className='space-y-10 px-0 md:px-10'>
           <h4 className='text-4xl font-semibold'>Here is a <span className='underline decoration-[#F7AB0A]/50'>little</span> background</h4>
 
-          <p className='text-base'>An entry level software engineer with a tenacity of finding solutions and communicating problems. I excel at working independently on collaborative projects with minimal problems. Eager to work, I continue to spend my time building my knowledge and my craft. I study algorithms, alongside my current pursuit of work.</p>
+          <p className='text-base'>{pageInfo?.backgroundInformation}</p>
        </div>
 
     </motion.div>
