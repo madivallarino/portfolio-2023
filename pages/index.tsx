@@ -24,8 +24,9 @@ type Props = {
   socials: Social[];
 }
 
-export default function Home({pageInfo, experiences, projects, skills, socials} : Props) {
-
+export default function Home({} : Props) {
+  console.log('hello!')
+// {pageInfo, experiences, projects, skills, socials}
   return (
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
       <Head>
@@ -33,35 +34,35 @@ export default function Home({pageInfo, experiences, projects, skills, socials} 
       </Head>
     
      
-      <Header socials={socials} />
+      {/* <Header socials={socials} /> */}
       {/* Hero  */}
-      <section id="hero" className='snap-start'>
+      {/* <section id="hero" className='snap-start'>
         <Hero pageInfo={pageInfo} />
-      </section>
+      </section> */}
       {/* About */}
-      <section id="about" className='snap-center'>
+      {/* <section id="about" className='snap-center'>
         <About pageInfo={pageInfo} />
-      </section>
+      </section> */}
       {/* Experiences */}
-      <section id="experience" className='snap-center'>
+      {/* <section id="experience" className='snap-center'>
         <WorkExperience experiences={experiences} />
-      </section>
+      </section> */}
 
       {/* Skills */}
-      <section id="skills" className='snap-start'>
+      {/* <section id="skills" className='snap-start'>
         <Skills skills={skills} />
-      </section>
+      </section> */}
 
-      <section id="projects" className='snap-start'>
+      {/* <section id="projects" className='snap-start'>
         <Projects projects={projects} />
-      </section>
+      </section> */}
 
       {/* Contact Me */}
-      <section id="contact" className='snap-start'>
+      {/* <section id="contact" className='snap-start'>
         <ContactMe />
-      </section>
+      </section> */}
 
-      <Link href='#hero'>
+      {/* <Link href='#hero'>
         <footer className='sticky bottom-5 w-full cursor-pointer'>
           <div className='flex items-center justify-center'>
             <Image 
@@ -69,29 +70,29 @@ export default function Home({pageInfo, experiences, projects, skills, socials} 
             src="https://miro.medium.com/max/2400/1*j8oct7dLeIL8Ruw69NfcrA.jpeg" alt="" height={25} width={25}/>
           </div>
         </footer>
-      </Link>
+      </Link> */}
     </div>
   )
 }
 
 
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+// export const getStaticProps: GetStaticProps<Props> = async () => {
 
-    const pageInfo: PageInfo = await fetchPageInfo();
-    const experiences: Experience[] = await fetchExperiences();
-    const skills: Skill[] = await fetchSkills();
-    const projects: Project[] = await fetchProjects();
-    const socials: Social[] = await fetchSocials();
+//     const pageInfo: PageInfo = await fetchPageInfo();
+//     const experiences: Experience[] = await fetchExperiences();
+//     const skills: Skill[] = await fetchSkills();
+//     const projects: Project[] = await fetchProjects();
+//     const socials: Social[] = await fetchSocials();
 
 
-    return {
-      props: {
-        pageInfo,
-        experiences,
-        skills,
-        socials,
-        projects,
-      }, 
-    };
-}
+//     return {
+//       props: {
+//         pageInfo,
+//         experiences,
+//         skills,
+//         socials,
+//         projects,
+//       }, 
+//     };
+// }
