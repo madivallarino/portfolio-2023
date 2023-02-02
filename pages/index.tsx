@@ -74,19 +74,15 @@ export default function Home({pageInfo, experiences, projects, skills, socials} 
   )
 }
 
-export async function loadStuff (){
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
 
-  return { pageInfo, experiences, skills, projects, socials }
-}
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
 
-      const { pageInfo, experiences, skills, socials, projects } = await loadStuff()
+    const pageInfo: PageInfo = await fetchPageInfo();
+    const experiences: Experience[] = await fetchExperiences();
+    const skills: Skill[] = await fetchSkills();
+    const projects: Project[] = await fetchProjects();
+    const socials: Social[] = await fetchSocials();
 
 
     return {
