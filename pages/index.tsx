@@ -24,9 +24,9 @@ type PageProps = {
   socials: Social[];
 }
 
-export default function Home({socials} : PageProps) {
+export default function Home({ pageInfo, experiences, skills, projects, socials} : PageProps) {
  // 
- console.log(socials)
+
 // 
   return (
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
@@ -35,35 +35,35 @@ export default function Home({socials} : PageProps) {
       </Head>
 
      
-     
+     <h1>Hewo</h1>
       <Header socials={socials} />
 
       {/* Hero  */}
-      {/* <section id="hero" className='snap-start'>
+      <section id="hero" className='snap-start'>
         <Hero pageInfo={pageInfo} />
-      </section> */}
+      </section>
       {/* About */}
-      {/* <section id="about" className='snap-center'>
+      <section id="about" className='snap-center'>
         <About pageInfo={pageInfo} />
-      </section> */}
+      </section>
       {/* Experiences */}
-      {/* <section id="experience" className='snap-center'>
+      <section id="experience" className='snap-center'>
         <WorkExperience experiences={experiences} />
-      </section> */}
+      </section>
 
       {/* Skills */}
-      {/* <section id="skills" className='snap-start'>
+      <section id="skills" className='snap-start'>
         <Skills skills={skills} />
-      </section> */}
+      </section>
 
-      {/* <section id="projects" className='snap-start'>
+      <section id="projects" className='snap-start'>
         <Projects projects={projects} />
-      </section> */}
+      </section>
 
       {/* Contact Me */}
-      {/* <section id="contact" className='snap-start'>
+      <section id="contact" className='snap-start'>
         <ContactMe />
-      </section> */}
+      </section>
 
       <Link href='#hero'>
         <footer className='sticky bottom-5 w-full cursor-pointer'>
@@ -80,7 +80,7 @@ export default function Home({socials} : PageProps) {
 
 
 
-export const getStaticProps: GetStaticProps<PageProps> = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
 
     const experiences: Experience[] = await fetchExperiences();
     const skills: Skill[] = await fetchSkills();
@@ -96,7 +96,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
         skills,
         socials,
         projects,
-      },
-      revalidate: 10,
+      }
     };
 }
