@@ -96,6 +96,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
         skills,
         socials,
         projects,
-      }
+      },
+      revalidate: 10,
     };
 }
