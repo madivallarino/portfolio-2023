@@ -2,6 +2,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Project } from "@/typings"
 import { urlFor } from "@/sanity";
+import Link from "next/link";
 
 type Props = {
     projects: Project[];
@@ -41,6 +42,12 @@ function Projects({ projects }: Props) {
                         <p className="text-sm text-center md:text-left">
                             {project?.summary}
                         </p>
+                        <p className="text-[#D1B7F5] text-center">
+                        <Link href={project?.linkToBuild} >
+                            Click Here To Check Out The Build!
+                        </Link>
+                        </p>
+                       
                      </div>
                 </div>
             ))}
