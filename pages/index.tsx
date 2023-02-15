@@ -34,8 +34,7 @@ export default function Home({ pageInfo, experiences, skills, projects, socials}
         <title>Portfolio 2023</title>
       </Head>
 
-     
-     <h1>Hewo</h1>
+  
       <Header socials={socials} />
 
       {/* Hero  */}
